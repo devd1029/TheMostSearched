@@ -1,0 +1,95 @@
+.column{
+
+   
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.card:hover{
+    background-color: #00000044;
+}
+
+.option{
+    background: white;
+    padding: 67px;
+    font-size: 67px;
+    border-radius: 9px;
+    font-family: math;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items:center ;
+    gap: 40px;
+}
+
+.high{    
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 77px;
+    line-height: 102px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px 88px;
+    border: none;
+    text-shadow: 6px 5px 7px #000;
+    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+    background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
+    color: #fff;
+
+}
+
+.low{
+    
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    font-size: 77px;
+    text-shadow: 6px 5px 7px #000;
+    line-height: 102px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px 88px;
+    color: #ffffff;
+    background: #008060;
+    border-radius: 14px;
+  
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
+    
+
+
+}
+.high:hover {
+    background: #a60a55;
+}
+
+.low:hover {
+    background: #006e52;
+}
+
+.row {
+
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 23px;
+  
+}
+.card div {
+  
+    margin-top: 100px;
+}
+
+.counter{
+    font-size: 140px;
+    font-family: 'FontAwesome';
+}

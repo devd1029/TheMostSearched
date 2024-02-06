@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>GuessTheMostSearches</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+    <div id="content">Hello world
+      <img src="" alt="" id="image" >
+    </div>
+    <script>
+      function hndlr(response) {
+        var image;
+      for (var i = 0; i < response.items.length; i++) {
+        var item = response.items[i];
+        // Make sure HTML in item.htmlTitle is escaped.
+        document.getElementById("content").append(
+          document.createElement("br"),
+          document.createTextNode(item.htmlTitle),
+          document.createTextNode(item.pagemap.metatags[0]["og:image"]),
+        );
+       
+        if(item.pagemap.cse_image){
+          var source = item.pagemap.cse_image[0].src
+        console.log(item.DisplayLink)
+        var id = item.link.split('=')[1];
+        console.log(id);
+          document.getElementById("image").src = "http://img.youtube.com/vi/"+id+"/0.jpg"
+          
+        }else{
+          document.getElementById("image").src = item.pagemap.metatags[0]["og:image"];
+        }
+        
+       
+      }
+    }
+    </script>
+    <script src="https://www.googleapis.com/customsearch/v1?num=1&key=AIzaSyAH8jidz-pVSlttdlaNQ7bNcJJ54S78DJI&rsz=1&num=1&hl=en&source=gcsc&gss=.com&cselibv=8435450f13508ca1&searchtype=image&cx=12fd33596366c4787&q=animal&callback=hndlr">
+    </script>
+ 
+</body>
+</html>
