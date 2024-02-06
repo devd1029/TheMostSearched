@@ -109,7 +109,6 @@ body {
 
     transition: all 0.2s ease-in-out;
     line-height: 24px;
-    cursor: pointer;
   }
 
   .card-container .card:not(:last-child) {

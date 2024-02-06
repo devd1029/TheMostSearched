@@ -14,8 +14,8 @@
 
 .option{
     background: white;
-    padding: 67px;
-    font-size: 67px;
+    padding: 10px;
+    font-size: 37px;
     border-radius: 9px;
     font-family: math;
 }
@@ -32,11 +32,11 @@
     display: inline-block;
     outline: none;
     cursor: pointer;
-    font-size: 77px;
-    line-height: 102px;
+    font-size: 23px;
+    line-height: 38px;
     font-weight: 600;
     border-radius: 8px;
-    padding: 10px 88px;
+    padding: 10px 47px;
     border: none;
     text-shadow: 6px 5px 7px #000;
     transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
@@ -52,12 +52,12 @@
     cursor: pointer;
     text-align: center;
     border: none;
-    font-size: 77px;
+    font-size: 23px;
     text-shadow: 6px 5px 7px #000;
-    line-height: 102px;
+    line-height: 38px;
     font-weight: 600;
     border-radius: 8px;
-    padding: 10px 88px;
+    padding: 10px 47px;
     color: #ffffff;
     background: #008060;
     border-radius: 14px;
@@ -90,6 +90,6 @@
 }
 
 .counter{
-    font-size: 140px;
+    font-size: 37px;
     font-family: 'FontAwesome';
 }

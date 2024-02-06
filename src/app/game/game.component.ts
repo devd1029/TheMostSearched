@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import * as trending from '../../assets/trendingItems.json';
 import { interval, map, startWith } from 'rxjs';
+import { GoogleSearchService } from '../services/google-search.service';
 
 @Component({
   selector: 'app-game',
@@ -10,46 +11,74 @@ import { interval, map, startWith } from 'rxjs';
 })
 export class GameComponent implements OnInit {
 
- trendingItem :any ;
- random1:number=0;
- random2:number=0;
-link:any;
- finalLinks = ""
-//link[0]="https://youtu.be/UdCkfcYcLUM?si=8vJlUVQRGn3a92jJ";
-
-  convertLinks = (url:string) => {
+  trendingItem: any;
+  item1:any;
+  item2:any;
+  item1Url:any;
+  item2Url:any;
+  random1: number = 0;
+  random2: number = 0;
+  link: any;
   
-  var thumbFormat = "https://www.youtube.com/watch?app=desktop&v="
-   
-      var hash = url.split(/v\=/)[1]  
-      this.finalLinks += thumbFormat + hash + "\n"   
-      console.log(this.finalLinks);
-    }
-    
+  finalLinks = ""
+  //link[0]="https://youtu.be/UdCkfcYcLUM?si=8vJlUVQRGn3a92jJ";
 
-
- imageUrl$ = interval(5000).pipe(map(i => {
-  if (i % 2 === 0) {
-    return 'https://lorempixel.com/800/600/nature/';
-  } 
-  return 'https://lorempixel.com/800/600/animals/'
-}), 
-startWith('https://media.makeameme.org/created/wait-for-it-593ff4.jpg'));
-constructor() {
-  this.trendingItem = trending ;
-}
+  constructor(private searchService: GoogleSearchService) {
+    this.trendingItem = trending;
+  }
   ngOnInit(): void {
-     this.random1 = Math.floor(Math.random()*this.trendingItem.length);
-     this.random2 = Math.floor(Math.random()*this.trendingItem.length);
-    console.log(this.random1, this.random2);
-    for (let index = 0; index < this.trendingItem.length; index++) {
+   
+    this.generateData();
+    // console.log(this.trendingItem[ranodm1],this.trendingItem[ranodm2]);
+  }
 
-      //console.log(this.trendingItem[index]);
-      
+  generateData(){
+    do {
+      this.random1 = Math.floor(Math.random() * this.trendingItem.length);
+      this.random2 = Math.floor(Math.random() * this.trendingItem.length);
+    }while (this.random1 != this.random2) {
+      this.random1 = Math.floor(Math.random() * this.trendingItem.length);
+      this.random2 = Math.floor(Math.random() * this.trendingItem.length);
     }
-    console.log(this.trendingItem[this.random2]['url'])
- // console.log(this.trendingItem[ranodm1],this.trendingItem[ranodm2]);
+
+    this.item1 = this.getInputData(this.random1)
+    this.item2 = this.getInputData(this.random2)
+       this.getInputImage(this.item1["name"],this.item1Url)
+    console.log(this.item1Url)
+   // console.log(this.trendingItem[this.random2]['url'])
+  }
+
+  getInputImage(keyword: string, setUrl:string) {
+    
+    console.log("fetching Imagedata");
+
+    var url  = "";
+    
+     this.searchService.getImageBySearch(keyword).subscribe({
+      next: (result) =>{
+       var respon = result["items"][0];
+       console.log(respon);
+         if(respon["link"].includes("youtube")){
+          setUrl ="http://img.youtube.com/vi/"+respon.link.split('=')[1]+"/0.jpg"
+         }else {
+          setUrl = respon.pagemap.metatags[0]["og:image"]
+         }
+         
+         console.log(url)
+ 
+     },
+     error:(error) =>{
+       console.log(error);
+     }
+   })
 }
- 
- 
+
+  getInputData(item:number){
+    console.log("fetching input data for"+item);
+    var trendItem = this.trendingItem[item];
+    console.log(trendItem);
+    return trendItem;
+  }
+
+
 }

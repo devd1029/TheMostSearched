@@ -15,6 +15,7 @@
     <script>
       function hndlr(response) {
         var image;
+        console.log(response);
       for (var i = 0; i < response.items.length; i++) {
         var item = response.items[i];
         // Make sure HTML in item.htmlTitle is escaped.
