@@ -1,0 +1,70 @@
+
+.startbar{
+    min-height: 100vh;
+    min-width: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #181818;
+   
+
+}
+
+.startCard{
+    width: 200px;
+    height: 200px;
+    /* border: 2px solid greenyellow; */
+    box-shadow: 10px 10px 20px black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+     align-items: center; 
+     position: relative;
+     overflow: hidden;
+     transition: transform 0.3s ;
+}
+
+.startCard:hover{
+    transform: translateY(-7px);
+
+}
+.startCard::before{
+    content: "";
+    background-image:linear-gradient( rgb(242 10 10 / 93%),#181818,#181818,#181818,#181818);
+    width: 150%;
+    height: 150%;
+    position: absolute;
+    animation: rotate 18s infinite;
+    box-shadow: 10px 10px 20px black;
+   
+    
+}
+
+.startCard::after{
+    content: "START";
+     width: 190px;
+     height: 190px;
+     background: #101010;
+     border-radius: 10px;
+     display: flex;
+     justify-content: center;
+     align-items: center; 
+     position: absolute;
+     color: rgb(242 10 10 / 93%);
+     font-size: large;
+     letter-spacing: 8px;
+     cursor: pointer;
+     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     font-weight:bolder;
+     
+
+}
+
+@keyframes rotate{
+    0%{
+       transform: rotate(0deg); 
+    }
+    100%{
+        transform: rotate(360deg); 
+     }
+}

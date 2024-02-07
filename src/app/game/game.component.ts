@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as trending from '../../assets/trendingItems.json';
-import { interval, map, startWith } from 'rxjs';
+import { Observable, interval, map, startWith } from 'rxjs';
 import { GoogleSearchService } from '../services/google-search.service';
 
 @Component({
@@ -43,34 +43,46 @@ export class GameComponent implements OnInit {
 
     this.item1 = this.getInputData(this.random1)
     this.item2 = this.getInputData(this.random2)
-       this.getInputImage(this.item1["name"],this.item1Url)
-    console.log(this.item1Url)
-   // console.log(this.trendingItem[this.random2]['url'])
+  
+  //  this.getInputImage(this.item1["name"],"Item1")
+   // this.getInputImage(this.item2["name"],"Item2")
+    //this.item1Url)
+   //console.log(this.trendingItem[this.random2]['url'])
   }
 
-  getInputImage(keyword: string, setUrl:string) {
-    
-    console.log("fetching Imagedata");
-
-    var url  = "";
+  getInputImage(keyword: string,item:string) {
     
      this.searchService.getImageBySearch(keyword).subscribe({
       next: (result) =>{
        var respon = result["items"][0];
        console.log(respon);
-         if(respon["link"].includes("youtube")){
-          setUrl ="http://img.youtube.com/vi/"+respon.link.split('=')[1]+"/0.jpg"
-         }else {
-          setUrl = respon.pagemap.metatags[0]["og:image"]
-         }
-         
-         console.log(url)
- 
+       this.setInputImage(respon,item);
+      
      },
      error:(error) =>{
        console.log(error);
+
      }
    })
+  
+   
+
+}
+
+setInputImage(respon:any,item:string){
+
+  var Url
+  if(respon["link"].includes("youtube")){
+    Url ="http://img.youtube.com/vi/"+respon.link.split('=')[1]+"/0.jpg"
+   }else {
+    Url = respon.pagemap.metatags[0]["og:image"]
+   }
+  console.log(Url)
+   if(item =="Item1" ){
+     this.item1Url = Url
+   }else{
+    this.item2Url = Url
+   }
 }
 
   getInputData(item:number){
