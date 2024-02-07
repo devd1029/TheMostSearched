@@ -102,3 +102,30 @@
     font-size: 37px;
     font-family: 'FontAwesome';
 }
+
+@keyframes slideInLeft {
+    from{
+        transform: translateX(-100vh);
+    }
+    to{
+        transform: translateX(0px);
+    }
+}
+
+@keyframes slideInRight {
+    from{
+        transform: translateX(100vh);
+    }
+    to{
+        transform: translateX(0px);
+    }
+}
+.card1{
+    animation: slideInLeft 0.4s ease-in;
+
+}
+
+.card2{
+    animation: slideInRight 0.4s ease-in;
+
+}
