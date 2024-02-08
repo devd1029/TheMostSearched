@@ -21,7 +21,8 @@
      align-items: center; 
      position: relative;
      overflow: hidden;
-     transition: transform 0.3s ;
+     transition:  0.3s ease-in ;
+     transform-style: preserve-3d;
 }
 
 .startCard:hover{
