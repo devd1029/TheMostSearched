@@ -7,6 +7,7 @@
     flex-direction: row;
     perspective: 1000px;
     height: 100vh;
+    background-image: url("../../assets/images/26146.jpg");
 
 }
 
@@ -33,6 +34,18 @@
     font-family: math;
     border-radius: 10px;
 
+}
+
+.op1{
+    top: 102px;
+    /* margin: 12px; */
+    left: 54px;
+}
+
+.op2{
+    bottom: 102px;
+    /* margin: 12px; */
+    right: 54px;
 }
 
 .button {
@@ -181,8 +194,9 @@
 }
 
 .cards{
-    width: 46%;
-    height: 46%;
+    /* width: 46%;
+    height: 46%; */
+    width: 170vh;
     position: relative;
     display: flex;
     justify-content: center;
@@ -263,10 +277,8 @@
 
 .textLogo{
     /* width: 100%; */
-    transition: transform 0.4s;
+    transition: transform 0.4s ;
     position: absolute;
-    bottom: 10px;
-    
 
 }
 .cards:hover .textLogo{
@@ -291,3 +303,50 @@
     opacity: 1;
     transform: translate(4%,-20%,700px);
 }
+
+
+
+.slicer {
+    display: grid;
+    place-content: center;
+    background-color: #000;
+    min-height: 100vh;
+    font-family: "Oswald", sans-serif;
+    /* font-size: clamp(1.5rem, 1rem + 18vw, 15rem); */
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  .slicer > div {
+    grid-area: 1/1/-1/-1;
+  }
+  .top {
+    clip-path: polygon(0% 0%, 100% 0%, 57% 0%, 0% 289%);
+    box-shadow: #000 40px 40px 24px,
+    #02140033 0px 24px 24px;
+  }
+  .bottom {
+    clip-path: polygon(0% 292%, 100% -207%, 100% 100%, 0% 100%);
+    /* color: transparent; */
+    box-shadow: #000 40px 40px 24px,
+    #02140033 0px 24px 24px;
+    background: -webkit-linear-gradient(177deg, black 53%, #000 65%);
+    background: linear-gradient(177deg, black 53%, #000 65%);
+    background-clip:border-box;
+    -webkit-background-clip: text;
+    transform: translateX(-0.02em);
+  }
+
+
+  .vsImg{
+    position: absolute;
+    z-index: 2;
+    font-size: 47px;
+    background-color: aliceblue;
+    border-radius: 86px;
+    padding: 13px;
+    font-weight: bold;
+    /* font-family: fantasy; */
+    margin-right: 34px;
+  }
+  
