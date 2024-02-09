@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef } from '@angular/core';
 
 import * as trending from '../../assets/trendingItems.json';
 import { Observable, interval, map, startWith } from 'rxjs';
 import { GoogleSearchService } from '../services/google-search.service';
+import VanillaTilt from "vanilla-tilt";
 
 @Component({
   selector: 'app-game',
@@ -23,14 +24,20 @@ export class GameComponent implements OnInit {
   finalLinks = ""
   //link[0]="https://youtu.be/UdCkfcYcLUM?si=8vJlUVQRGn3a92jJ";
 
-  constructor(private searchService: GoogleSearchService) {
+  constructor(private searchService: GoogleSearchService, private e : ElementRef) {
     this.trendingItem = trending;
   }
   ngOnInit(): void {
    
     this.generateData();
     // console.log(this.trendingItem[ranodm1],this.trendingItem[ranodm2]);
+
+    VanillaTilt.init(
+    this.e.nativeElement.querySelectorAll(".cards"),{ max: 1, speed: 300, scale: 1.05 });
+      
   }
+
+  
 
   generateData(){
     do {

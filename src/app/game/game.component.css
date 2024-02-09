@@ -1,10 +1,13 @@
 .content {
-    height: 100vh;
+    /* width: 300px;
+    height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     perspective: 1000px;
+    height: 100vh;
+
 }
 
 .column {
@@ -28,6 +31,8 @@
     /* font-size: 37px; */
     /* border-radius: 9px; */
     font-family: math;
+    border-radius: 10px;
+
 }
 
 .button {
@@ -127,8 +132,8 @@
 
     border: 1px solid #ca1f1f;
     /* background-color: #fafafa; */
-    /* height: 100%;
-    width: 100%; */
+    height: 100%;
+    width: 100%;
     /* background-image: url("https://flagsapi.com/IN/shiny/64.png"); */
     /* background-size: cover; */
     display: flex;
@@ -138,6 +143,8 @@
     transition: all 0.2s ease-in-out;
     line-height: 24px;
     border-radius: 30px;
+    object-fit: cover;
+
 }
 
 .card1 {
@@ -171,4 +178,116 @@
 .card2 {
     /* animation: slideInRight 0.4s ease-in; */
 
+}
+
+.cards{
+    width: 46%;
+    height: 46%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto auto;
+    perspective: 2700px;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.coverImage{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+
+}
+
+.wrapper{
+    transition: all 0.4s;
+    /* position: absolute; */
+    width:100%;
+    z-index: -1;
+    background: #000;
+    border-radius: 30px;
+    box-shadow: #000 40px 40px 24px,
+    #02140033 0px 24px 24px;
+
+}
+
+.wrapper img{
+    border-radius: 30px;
+    box-shadow: #000 40px 40px 24px,
+    #02140033 0px 24px 24px;
+
+}
+
+/* .cards:hover .wrapper{
+    transform: perspective(900px) translateY(-4%) rotateX(24deg) translateZ(0);
+    box-shadow: #000 40px 40px 24px,
+    #02140033 0px 24px 24px;
+} */
+
+/* .cards ::before,
+.cards::after{
+    content: "";
+    opacity: 0;
+    width: 100%;
+    height:100%;
+    transition: all 0.4s;
+    border-radius: 30px;
+    position: absolute;
+    left: 0;
+    box-shadow: #000 40px 40px 24px,
+    #02140033 0px 24px 24px;
+} */
+
+.cards::before{
+    top: 0;
+    height: 100%;
+    background-image: linear-gradient(to top, transparent 47%,#000 78%,#101010 97%);
+
+}
+
+.cards::before{
+    bottom: 0;
+    opacity: 1;
+    background-image: linear-gradient(to bottom, transparent 47%,#000 78%,#101010 97%);
+    
+}
+
+.cards:hover .wrapper::before{
+    opacity: 1;
+}
+/* 
+.cards:hover .wrapper::after{
+    height: 120px;
+} */
+
+.textLogo{
+    /* width: 100%; */
+    transition: transform 0.4s;
+    position: absolute;
+    bottom: 10px;
+    
+
+}
+.cards:hover .textLogo{
+    transform: translate3d(0%,-40px,100px);
+    box-shadow: #000 40px 40px 24px,
+}
+
+.cards:hover .coverImage{
+    /* opacity: 0.2; */
+}
+
+.character{
+    
+    opacity: 0;
+    transition: all 0.4s;
+    filter: drop-shadow(-6px -8px 11px #000);
+    position: absolute;
+    z-index: -1;
+}
+
+.cards:hover .character{
+    opacity: 1;
+    transform: translate(4%,-20%,700px);
 }
