@@ -33,7 +33,7 @@ export class GameComponent implements OnInit {
     // console.log(this.trendingItem[ranodm1],this.trendingItem[ranodm2]);
 
     VanillaTilt.init(
-    this.e.nativeElement.querySelectorAll(".cards"),{ max: 1, speed: 300, scale: 1.05 });
+    this.e.nativeElement.querySelectorAll(".cards"),{ max: 10, speed: 300, scale: 1.05 });
       
   }
 
