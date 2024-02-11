@@ -3,12 +3,17 @@
     <div  class="vsImg">v/s</div>
    
         <!-- Highlight Card -->
-        <div class="cards" data-tilt>
-            <div class="wrapper">
+        <div class="cards flip" data-tilt (click)="getResult($event)">
+            <div class="wrapper front">
                 <img src=".../../../../assets/images/coverImganimal.jpg" alt="" class="coverImage">
             </div>
 
             <div class="option textLogo">{{item1["name"] | uppercase}}</div>
+
+            <div class="back">
+                <h2>{{item1["name"] | uppercase}}</h2>
+                <p>Good tools make application development quicker and easier to maintain than if you did everything by hand..</p>
+             </div>
             <!-- <img src="../../assets/images/animal.png" alt="" class="character"> -->
 
             <!-- <div class="glass">
@@ -19,8 +24,8 @@
 
         </div>
 
-        <div class="cards" data-tilt>
-            <div class="wrapper">
+        <div class="cards flip" data-tilt (click)="getResult($event)">
+            <div class="wrapper front">
                 <img src=".../../../../assets/images/coverImganimal.jpg" alt="" class="coverImage">
             </div>
 
@@ -32,7 +37,10 @@
        
         <div class="counter"> 10,00,000</div> 
     </div>  -->
-
+    <div class="back">
+        <h2>{{item2["name"] | uppercase}}</h2>
+        <p>Good tools make application development quicker and easier to maintain than if you did everything by hand..</p>
+     </div>
         </div>
  
 

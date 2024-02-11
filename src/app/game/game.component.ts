@@ -32,13 +32,14 @@ export class GameComponent implements OnInit {
     this.generateData();
     // console.log(this.trendingItem[ranodm1],this.trendingItem[ranodm2]);
 
-    VanillaTilt.init(
-    this.e.nativeElement.querySelectorAll(".cards"),{ max: 3, speed: 3});
+    VanillaTilt.init(this.e.nativeElement.querySelectorAll(".cards"),{ max: 3, speed: 3, scale: 1.05 });
       
   }
 
   
-
+getResult($event:any){
+  console.log($event);
+}
   generateData(){
     do {
       this.random1 = Math.floor(Math.random() * this.trendingItem.length);
@@ -51,8 +52,8 @@ export class GameComponent implements OnInit {
     this.item1 = this.getInputData(this.random1)
     this.item2 = this.getInputData(this.random2)
   
-   this.getInputImage(this.item1["name"],"Item1")
-   this.getInputImage(this.item2["name"],"Item2")
+  //  this.getInputImage(this.item1["name"],"Item1")
+  //  this.getInputImage(this.item2["name"],"Item2")
     //this.item1Url)
    //console.log(this.trendingItem[this.random2]['url'])
   }

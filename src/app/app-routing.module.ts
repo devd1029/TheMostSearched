@@ -4,6 +4,7 @@ import { StartComponent } from './start/start.component';
 import { GameComponent } from './game/game.component';
 
 const routes: Routes = [
+  {path:'', component: StartComponent},
   {path:'start', component: StartComponent},
   {path:'game', component: GameComponent}
 ];
