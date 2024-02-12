@@ -1,15 +1,16 @@
 <div class="content">
+    <div  class="score" *ngIf="score">Score : {{score}}</div>
     <!-- <img src="../../assets/images/versus.png" alt="" class="vsImg"> -->
     <div class="vsImg">v/s</div>
 
     <!-- Highlight Card -->
-    <div class="cards flip" data-tilt (click)="getResult($event)" >
+    <div class="cards flip" data-tilt (click)="getResult(item1,item2)" >
         <div class="wrapper">
             <img src=".../../../../assets/images/coverImganimal.jpg" alt="" class="coverImage">
         </div>
 
         <div class="option textLogo">{{item1["name"] | uppercase}}</div>
-        <div class="counter" *ngIf="enableCounter"> 10,00,000</div> 
+        <div class="counter" *ngIf="enableCounter"> {{item1Counter}}</div> 
 
         <!-- <img src="../../assets/images/animal.png" alt="" class="character"> -->
 
@@ -21,12 +22,13 @@
 
     </div>
 
-    <div class="cards flip" data-tilt (click)="getResult($event)" >
+    <div class="cards flip" data-tilt (click)="getResult(item2,item1)" >
         <div class="wrapper">
             <img src=".../../../../assets/images/coverImganimal.jpg" alt="" class="coverImage">
         </div>
 
         <div class="option textLogo">{{item2["name"] | uppercase}}</div>
+        <div class="counter" *ngIf="enableCounter"> {{item2["percentage"]}}</div>
         <!-- <img src="../../assets/images/animal.png" alt="" class="character"> -->
 
         <!-- <div class="glass">

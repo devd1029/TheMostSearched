@@ -365,6 +365,23 @@
    
   }
   
+  .score{
+    position: absolute;
+    z-index: 2;
+    font-size: 21px;
+    border-radius: 86px;
+    top:5px;
+    padding: 13px;
+    margin:  0 10px;
+    /* font-family: fantasy;
+    margin-right: 34px; 
+ 
+    /* font-size: 13rem; */
+    font-weight: 600;
+    overflow: hidden;
+    color: #fff;
+   
+  }
 
   @media only screen and (max-width: 768px) {
     /* For mobile phones: */
