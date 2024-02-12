@@ -1,48 +1,42 @@
 <div class="content">
     <!-- <img src="../../assets/images/versus.png" alt="" class="vsImg"> -->
-    <div  class="vsImg">v/s</div>
-   
-        <!-- Highlight Card -->
-        <div class="cards flip" data-tilt (click)="getResult($event)">
-            <div class="wrapper front">
-                <img src=".../../../../assets/images/coverImganimal.jpg" alt="" class="coverImage">
-            </div>
+    <div class="vsImg">v/s</div>
 
-            <div class="option textLogo">{{item1["name"] | uppercase}}</div>
+    <!-- Highlight Card -->
+    <div class="cards flip" data-tilt (click)="getResult($event)" >
+        <div class="wrapper">
+            <img src=".../../../../assets/images/coverImganimal.jpg" alt="" class="coverImage">
+        </div>
 
-            <div class="back">
-                <h2>{{item1["name"] | uppercase}}</h2>
-                <p>Good tools make application development quicker and easier to maintain than if you did everything by hand..</p>
-             </div>
-            <!-- <img src="../../assets/images/animal.png" alt="" class="character"> -->
+        <div class="option textLogo">{{item1["name"] | uppercase}}</div>
+        <div class="counter" *ngIf="enableCounter"> 10,00,000</div> 
 
-            <!-- <div class="glass">
+        <!-- <img src="../../assets/images/animal.png" alt="" class="character"> -->
+
+        <!-- <div class="glass">
          <div class="option">{{item1["name"] | uppercase}}</div>
        
         <div class="counter"> 10,00,000</div> 
     </div>  -->
 
+    </div>
+
+    <div class="cards flip" data-tilt (click)="getResult($event)" >
+        <div class="wrapper">
+            <img src=".../../../../assets/images/coverImganimal.jpg" alt="" class="coverImage">
         </div>
 
-        <div class="cards flip" data-tilt (click)="getResult($event)">
-            <div class="wrapper front">
-                <img src=".../../../../assets/images/coverImganimal.jpg" alt="" class="coverImage">
-            </div>
+        <div class="option textLogo">{{item2["name"] | uppercase}}</div>
+        <!-- <img src="../../assets/images/animal.png" alt="" class="character"> -->
 
-            <div class="option textLogo">{{item2["name"] | uppercase}}</div>
-            <!-- <img src="../../assets/images/animal.png" alt="" class="character"> -->
-
-            <!-- <div class="glass">
+        <!-- <div class="glass">
          <div class="option">{{item1["name"] | uppercase}}</div>
        
         <div class="counter"> 10,00,000</div> 
     </div>  -->
-    <div class="back">
-        <h2>{{item2["name"] | uppercase}}</h2>
-        <p>Good tools make application development quicker and easier to maintain than if you did everything by hand..</p>
-     </div>
-        </div>
- 
+
+    </div>
+
 
 
 </div>

@@ -4,6 +4,7 @@ import * as trending from '../../assets/trendingItems.json';
 import { Observable, interval, map, startWith } from 'rxjs';
 import { GoogleSearchService } from '../services/google-search.service';
 import VanillaTilt from "vanilla-tilt";
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-game',
@@ -20,7 +21,8 @@ export class GameComponent implements OnInit {
   random1: number = 0;
   random2: number = 0;
   link: any;
-  
+  enableCounter:any
+
   finalLinks = ""
   //link[0]="https://youtu.be/UdCkfcYcLUM?si=8vJlUVQRGn3a92jJ";
 
@@ -38,7 +40,7 @@ export class GameComponent implements OnInit {
 
   
 getResult($event:any){
-  console.log($event);
+    this.enableCounter = true;
 }
   generateData(){
     do {
