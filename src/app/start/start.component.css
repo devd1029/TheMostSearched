@@ -69,3 +69,15 @@
         transform: rotate(360deg); 
      }
 }
+
+.option {
+    background: white;
+    padding: 10px;
+    /* font-size: 37px; */
+    /* border-radius: 9px; */
+    font-family: math;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 10%;
+
+}

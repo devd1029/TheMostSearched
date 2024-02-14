@@ -46,19 +46,12 @@ export class GameComponent implements OnInit {
 
     this.enableCounter = true;
 
-    var startCounter = 0;
-    var endCounter = Number(item1["percentage"]);
-      while (startCounter != endCounter) {
-
-
-        this.item1Counter = startCounter;
-        startCounter++
-      }
     console.log(Number(item1["percentage"]) + " " + Number(item2["percentage"]))
     if (Number(item1["percentage"]) >= Number(item2["percentage"])) {
       this.score++;
     } else {
       this.score = 0;
+      
       console.log("Incorrect ans")
     }
     setTimeout(() => {
