@@ -4,7 +4,7 @@
     <div class="vsImg">v/s</div>
 
     <!-- Highlight Card -->
-    <div class="cards flip" data-tilt (click)="getResult(item1,item2)" >
+    <div class="cards flip" [class.incorrect]="onFalse1" data-tilt (click)="getResult(item1,item2,'item1')" >
         <div class="wrapper">
             <img src=".../../../../assets/images/coverImganimal.jpg" alt="" class="coverImage">
         </div>
@@ -22,7 +22,7 @@
 
     </div>
 
-    <div class="cards flip" data-tilt (click)="getResult(item2,item1)" >
+    <div class="cards flip" data-tilt (click)="getResult(item2,item1,'item2')" [class.incorrect]="onFalse2">
         <div class="wrapper">
             <img src=".../../../../assets/images/coverImganimal.jpg" alt="" class="coverImage">
         </div>

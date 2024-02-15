@@ -25,6 +25,8 @@ export class GameComponent implements OnInit {
   item2Counter: any;
   enableCounter: any
   score: number = 0;
+  onFalse1:boolean=false;
+  onFalse2:boolean=false;
 
   finalLinks = ""
   //link[0]="https://youtu.be/UdCkfcYcLUM?si=8vJlUVQRGn3a92jJ";
@@ -42,7 +44,7 @@ export class GameComponent implements OnInit {
   }
 
 
-  getResult(item1: any, item2: any) {
+  getResult(item1: any, item2: any,tile:any) {
 
     this.enableCounter = true;
 
@@ -50,17 +52,24 @@ export class GameComponent implements OnInit {
     if (Number(item1["percentage"]) >= Number(item2["percentage"])) {
       this.score++;
     } else {
+      if(tile=="item1"){ 
+        this.onFalse1 = true;
+      }else{ 
+        this.onFalse2 = true;
+      }
       this.score = 0;
-      
       console.log("Incorrect ans")
     }
     setTimeout(() => {
       console.log("this is the first message");
       this.enableCounter = false;
+      this.onFalse1= false;
+      this.onFalse2= false;
+     
       this.generateData()
     }, 3000);
     console.log("Score is " + this.score);
-
+    
   }
 
   generateData() {
