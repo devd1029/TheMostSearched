@@ -1,10 +1,10 @@
 <div class="content">
-    <div  class="score" *ngIf="score">Score : {{score}}</div>
+    <div  class="score" *ngIf="score" [class.correct]="onCorrect">Score : {{score}}</div>
     <!-- <img src="../../assets/images/versus.png" alt="" class="vsImg"> -->
     <div class="vsImg">v/s</div>
 
     <!-- Highlight Card -->
-    <div class="cards flip" [class.incorrect]="onFalse1" data-tilt (click)="getResult(item1,item2,'item1')" >
+    <div class="cards flip" [class.incorrect]="onFalse1"  data-tilt (click)="getResult(item1,item2,'item1')" >
         <div class="wrapper">
             <img src=".../../../../assets/images/coverImganimal.jpg" alt="" class="coverImage">
         </div>

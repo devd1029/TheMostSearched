@@ -5,6 +5,7 @@ import { Observable, interval, map, startWith } from 'rxjs';
 import { GoogleSearchService } from '../services/google-search.service';
 import VanillaTilt from "vanilla-tilt";
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -27,11 +28,12 @@ export class GameComponent implements OnInit {
   score: number = 0;
   onFalse1:boolean=false;
   onFalse2:boolean=false;
+  onCorrect:boolean=false;
 
   finalLinks = ""
   //link[0]="https://youtu.be/UdCkfcYcLUM?si=8vJlUVQRGn3a92jJ";
 
-  constructor(private searchService: GoogleSearchService, private e: ElementRef) {
+  constructor(private searchService: GoogleSearchService, private e: ElementRef,private router:Router) {
     this.trendingItem = trending;
   }
   ngOnInit(): void {
@@ -51,6 +53,7 @@ export class GameComponent implements OnInit {
     console.log(Number(item1["percentage"]) + " " + Number(item2["percentage"]))
     if (Number(item1["percentage"]) >= Number(item2["percentage"])) {
       this.score++;
+      this.onCorrect = true;
     } else {
       if(tile=="item1"){ 
         this.onFalse1 = true;
@@ -65,8 +68,11 @@ export class GameComponent implements OnInit {
       this.enableCounter = false;
       this.onFalse1= false;
       this.onFalse2= false;
-     
-      this.generateData()
+      if( this.onFalse1|| this.onFalse2){
+        this.router.navigate(['/']);
+      }
+      this.onCorrect = false;
+       this.generateData()
     }, 3000);
     console.log("Score is " + this.score);
     
